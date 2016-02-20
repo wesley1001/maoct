@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @meetup.title %>
+</p>
+
+<p>
+  <strong>Open at:</strong>
+  <%= @meetup.open_at %>
+</p>
+
+<p>
+  <strong>Close at:</strong>
+  <%= @meetup.close_at %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @meetup.deadline %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @meetup.place %>
+</p>
+
+<p>
+  <strong>Intro:</strong>
+  <%= @meetup.intro %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @meetup.author %>
+</p>
+
+<%= link_to 'Edit', edit_meetup_path(@meetup) %> |
+<%= link_to 'Back', meetups_path %>

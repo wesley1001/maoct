@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  open_at: 2016-02-21 07:02:01
+  close_at: 2016-02-21 07:02:01
+  deadline: 2016-02-21 07:02:01
+  place: MyString
+  intro: MyText
+  author_id: 
+
+two:
+  title: MyString
+  open_at: 2016-02-21 07:02:01
+  close_at: 2016-02-21 07:02:01
+  deadline: 2016-02-21 07:02:01
+  place: MyString
+  intro: MyText
+  author_id: 
