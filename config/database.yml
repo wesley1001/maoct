@@ -5,12 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: wechat_starter_development
+  database: maoct_development
 
 test:
   <<: *default
-  database: wechat_starter_test
+  database: maoct_test
 
 production:
   <<: *default
-  database: wechat_starter_production
+  database: maoct_production
