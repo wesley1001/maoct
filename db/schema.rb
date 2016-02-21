@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220230201) do
+ActiveRecord::Schema.define(version: 20160221070626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "meetup_fees", force: :cascade do |t|
+    t.string   "key"
+    t.integer  "value"
+    t.integer  "quota"
+    t.integer  "meetup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "meetup_fees", ["meetup_id"], name: "index_meetup_fees_on_meetup_id", using: :btree
 
   create_table "meetups", force: :cascade do |t|
     t.string   "title"
@@ -52,5 +63,6 @@ ActiveRecord::Schema.define(version: 20160220230201) do
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "meetup_fees", "meetups"
   add_foreign_key "meetups", "users", column: "author_id"
 end
