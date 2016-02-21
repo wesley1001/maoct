@@ -50,3 +50,13 @@
   </div>
   <%= f.submit(class: 'ui fluid primary button') %>
 <% end %>
+
+<script>
+ $(function() {
+   $('#meetup_open_at').change(function() {
+     var val = $(this).val();
+     $('#meetup_close_at').val(val);
+     $('#meetup_deadline').val(val);
+   });
+ });
+</script>
