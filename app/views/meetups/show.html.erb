@@ -36,26 +36,41 @@
   活动费用
 </h4>
 
+<% if @enrolled %>
+  <div class="ui positive icon message">
+    <i class="announcement icon"></i>
+    <div class="content">
+      您已报名
+    </div>
+  </div>
+<% end %>
+
 <div class="ui cards">
   <% @meetup.meetup_fees.each do |fee| %>
-    <div class="ui fluid disabled card" href="#">
+    <div class="ui fluid card" href="#">
       <div class="content">
         <div class="header">
           <%= fee.key %>
         </div>
         <div class="description">
-          剩余<%= fee.quota_remained %>个名额
+          <% if fee.quota > 0 %>
+            剩余<%= fee.quota_remained %>个名额
+          <% else %>
+            名额不限
+          <% end %>
         </div>
       </div>
       <div class="ui top right attached label">
         <%= fee.value_show %>元
       </div>
-      <a class="ui bottom attached button" href="#"
-         data-meetup-id="<%= fee.meetup_id %>"
-         data-fee-id="<%= fee.id %>">
-        <i class="add icon"></i>
-        报名
-      </a>
+      <% unless @enrolled %>
+        <a class="ui bottom attached button" href="#"
+           data-meetup-id="<%= fee.meetup_id %>"
+           data-fee-id="<%= fee.id %>">
+          <i class="add icon"></i>
+          报名
+        </a>
+      <% end %>
     </div>
   <% end %>
 </div>
