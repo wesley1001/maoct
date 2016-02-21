@@ -1,3 +1,5 @@
+<%= link_to '创建活动', new_meetup_path, class: 'ui fluid button' %>
+
 <% @meetups.each do |meetup| %>
   <%= link_to meetup_path(meetup), class: 'ui fluid card' do %>
     <div class="content">
@@ -15,10 +17,8 @@
       </span>
       <span>
         <i class="check icon"></i>
-        121 人已报名
+        <%= meetup.meetup_enrolls_count %> 人已报名
       </span>
     </div>
   <% end %>
 <% end %>
-
-<%= link_to 'New Meetup', new_meetup_path %>
