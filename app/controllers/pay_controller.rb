@@ -1,7 +1,8 @@
 class PayController < ApplicationController
   layout "pay"
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:wx_notify]
+  skip_before_action :verify_authenticity_token, only: [:wx_notify]
 
   def new
     enroll = MeetupEnroll.find_by_id(request.params[:id])
@@ -20,9 +21,10 @@ class PayController < ApplicationController
       out_trade_no: "maoct-#{Time.now.to_i}",
       total_fee: @enroll.meetup_fee.value,
       spbill_create_ip: request.remote_ip,
-      notify_url: Figaro.env.wechat_pay_notify_url,
+      notify_url: "http://m.goofansu.com/notify_pay_result",
       trade_type: 'JSAPI',
-      openid: current_user.uid
+      openid: current_user.uid,
+      attach: {id: @enroll.id, type: :meetup_enroll}.to_json
     }
     prepay_result = WxPay::Service.invoke_unifiedorder(params)
     if prepay_result['return_code'] == 'SUCCESS'
@@ -38,6 +40,16 @@ class PayController < ApplicationController
     else
       logger.error "Error: #{prepay_result['return_msg']}"
       render json: prepay_result
+    end
+  end
+
+  def wx_notify
+    result = Hash.from_xml(request.body.read)['xml']
+    logger.debug result
+    if WxPay::Sign.verify?(result)
+      render xml: { return_code: 'SUCCESS', return_msg: 'OK' }.to_xml(root: 'xml', dasherize: false)
+    else
+      render xml: { return_code: 'FAIL', return_msg: 'Signature Error' }.to_xml(root: 'xml', dasherize: false)
     end
   end
 end

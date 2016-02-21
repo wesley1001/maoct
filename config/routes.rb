@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get  'goto_pay' => 'pay#new'
   post 'pay' => 'pay#create'
+  post 'notify_pay_result' => 'pay#wx_notify'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resource :wechat, only: [:show, :create]
