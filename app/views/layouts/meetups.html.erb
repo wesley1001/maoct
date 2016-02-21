@@ -9,10 +9,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="ui green two item inverted menu">
-      <a class="item active">所有活动</a>
+    <nav class="ui blue two item inverted menu">
+      <%= link_to "所有活动", meetups_path, class: 'item' %>
       <a class="item">我的报名</a>
-    </div>
+    </nav>
     <div class="ui container">
       <% if notice %>
         <div class="ui positive message">
@@ -29,6 +29,8 @@
 
       <%= yield %>
     </div>
+    <footer class="ui basic segment">
+    </footer>
     <script>
      $('.message .close').on('click', function() {
        $(this).closest('.message').transition('fade');
