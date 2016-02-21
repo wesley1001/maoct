@@ -62,15 +62,15 @@ class MeetupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_meetup
-      @meetup = Meetup.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_meetup
+    @meetup = Meetup.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def meetup_params
-      params.require(:meetup).permit(
-        :title, :open_at, :close_at, :deadline, :place, :intro,
-        meetup_fees_attributes: [:id, :key, :value, :quota, :_destroy])
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def meetup_params
+    params.require(:meetup).permit(
+      :title, :open_at, :close_at, :deadline, :place, :intro,
+      meetup_fees_attributes: [:id, :key, :value, :quota, :_destroy])
+  end
 end
