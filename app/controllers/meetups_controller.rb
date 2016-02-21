@@ -1,5 +1,6 @@
 class MeetupsController < ApplicationController
   before_action :set_meetup, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /meetups
   # GET /meetups.json
@@ -10,6 +11,7 @@ class MeetupsController < ApplicationController
   # GET /meetups/1
   # GET /meetups/1.json
   def show
+    @enrolled = current_user.meetup_ids.include?(@meetup.id)
   end
 
   # GET /meetups/new
@@ -25,6 +27,7 @@ class MeetupsController < ApplicationController
   # POST /meetups.json
   def create
     @meetup = Meetup.new(meetup_params)
+    @meetup.author = current_user
 
     respond_to do |format|
       if @meetup.save

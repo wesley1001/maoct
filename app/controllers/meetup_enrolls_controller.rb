@@ -3,12 +3,12 @@ class MeetupEnrollsController < ApplicationController
 
   # before_action :authenticate_user!
   before_action :set_meetup_enroll, only: [:show]
+  before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: [:create]
 
   # GET /meetup_enrolls
   def index
-    # @enrolls = current_user.meetup_enrolls
-    @enrolls = MeetupEnroll.all
+    @enrolls = current_user.meetup_enrolls
   end
 
   # POST /meetup_enrolls
@@ -22,6 +22,8 @@ class MeetupEnrollsController < ApplicationController
       elsif meetup_fee.quota > 0 && meetup_fee.quota < meetup_fee.quota_used
         render json: {err: 10002, err_msg: 'not enough quota'}
       else
+        @enroll.status = 1 if meetup_fee.value == 0
+        @enroll.user = current_user
         @enroll.save
       end
     end
@@ -42,7 +44,7 @@ class MeetupEnrollsController < ApplicationController
 
   private
   def set_meetup_enroll
-    @enroll = MeetupEnroll.find(params[:id])
+    @enroll = current_user.meetup_enrolls.find(params[:id])
   end
 
   def meetup_enroll_params
