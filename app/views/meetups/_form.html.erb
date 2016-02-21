@@ -4,9 +4,9 @@
       <h2><%= pluralize(@meetup.errors.count, "error") %> prohibited this meetup from being saved:</h2>
 
       <ul>
-      <% @meetup.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @meetup.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
