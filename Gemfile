@@ -68,3 +68,4 @@ gem 'puma'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'semantic-ui-sass'
+gem 'cocoon'
