@@ -1,4 +1,4 @@
-<%= form_for(@meetup) do |f| %>
+<%= form_for(@meetup, html: {class: 'ui fluid form'}) do |f| %>
   <% if @meetup.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@meetup.errors.count, "error") %> prohibited this meetup from being saved:</h2>
