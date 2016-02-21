@@ -47,6 +47,13 @@ class PayController < ApplicationController
     result = Hash.from_xml(request.body.read)['xml']
     logger.debug result
     if WxPay::Sign.verify?(result)
+      attach = JSON.parse(result['attach'])
+      logger.debug attach
+      type = attach['type']
+      id = attach['id']
+      enroll = MeetupEnroll.find_by_id(id)
+      enroll.status = 1
+      enroll.save
       render xml: { return_code: 'SUCCESS', return_msg: 'OK' }.to_xml(root: 'xml', dasherize: false)
     else
       render xml: { return_code: 'FAIL', return_msg: 'Signature Error' }.to_xml(root: 'xml', dasherize: false)
