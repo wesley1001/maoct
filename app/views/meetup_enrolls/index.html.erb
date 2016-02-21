@@ -1,7 +1,28 @@
-<% @enrolls.each do |enroll| %>
-  <%= link_to meetup_enroll_path(enroll), class: 'ui fluid card' do %>
-    <div class="content">
-      <div class="header"><%= enroll.meetup.title %></div>
+<div class="ui cards">
+  <% @enrolls.each do |enroll| %>
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="header"><%= enroll.meetup_fee.key %></div>
+        <%= link_to meetup_path(enroll.meetup), class: 'description' do %>
+          <i class="pointing right icon"></i>
+          <%= enroll.meetup.title %>
+        <% end %>
+      </div>
+      <% if enroll.status == 0 %>
+        <div class="ui top right attached label">
+          待支付
+        </div>
+      <% else %>
+        <div class="ui top right attached label">
+          已完成
+        </div>
+      <% end %>
+      <% if enroll.status == 0 %>
+        <a class="ui bottom attached primary button" href="#"
+           data-enroll-id="<%= enroll.id %>">
+          支付<%= enroll.meetup_fee.value_show %>元
+        </a>
+      <% end %>
     </div>
   <% end %>
-<% end %>
+</div>
