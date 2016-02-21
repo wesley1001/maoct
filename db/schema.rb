@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221203936) do
+ActiveRecord::Schema.define(version: 20160221220028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20160221203936) do
     t.integer  "user_id"
     t.integer  "meetup_id"
     t.integer  "meetup_fee_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "status",        default: 0
   end
 
   add_index "meetup_enrolls", ["meetup_fee_id"], name: "index_meetup_enrolls_on_meetup_fee_id", using: :btree
