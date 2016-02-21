@@ -18,4 +18,5 @@ class User < ActiveRecord::Base
   end
 
   has_many :meetup_enrolls
+  has_many :meetups, through: :meetup_enrolls
 end
