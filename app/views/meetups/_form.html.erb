@@ -36,7 +36,7 @@
     <%= f.text_area :intro %>
   </div>
   <h4 class="ui horizontal divider header">
-    <i class="tag icon"></i>
+    <i class="payment icon"></i>
     活动费用
   </h4>
   <div class="ui segment">
@@ -48,7 +48,5 @@
       { class: 'ui fluid button' } %>
     </div>
   </div>
-  <div class="actions">
-    <%= f.submit "发布活动", class: 'ui fluid green button' %>
-  </div>
+  <%= f.submit(class: 'ui fluid primary button') %>
 <% end %>
