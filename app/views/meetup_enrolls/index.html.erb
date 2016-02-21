@@ -18,9 +18,9 @@
         </div>
       <% end %>
       <% if enroll.status == 0 %>
-        <a class="ui bottom attached primary button" href="#"
-           data-enroll-id="<%= enroll.id %>">
-          支付<%= enroll.meetup_fee.value_show %>元
+        <a class="ui bottom attached button"
+           href="/goto_pay?type=meetup_enroll&id=<%= enroll.id %>">
+          支付
         </a>
       <% end %>
     </div>

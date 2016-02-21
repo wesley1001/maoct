@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WechatStarter</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="weui_msg">
+      <div class="weui_icon_area">
+        <i class="weui_icon_safe weui_icon_safe_success"></i>
+      </div>
+      <%= yield %>
+      <!-- <div class="weui_extra_area"> -->
+      <!-- <a href="">查看详情</a> -->
+      <!-- </div> -->
+    </div>
+  </body>
+</html>
