@@ -85,10 +85,11 @@
        if(data.err == 0) {
          if(data.fee > 0) {
            alert('已为您锁定名额，请尽快支付');
+           window.location.href = '/goto_pay?type=meetup_enroll&id=' + data.enroll_id;
          } else {
            alert('报名完成');
+           window.location.href = '/meetup_enrolls';
          }
-         window.location.href = '/meetup_enrolls/' + data.enroll_id;
        } else if(data.err == 10001){
          alert('报名已结束');
        } else if(data.err == 10002){
