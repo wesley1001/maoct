@@ -3,12 +3,41 @@
     微信支付
   </h2>
   <p class="weui_msg_desc">
-    支付<%= @enroll.meetup_fee.key %>，需要花费<%= @enroll.meetup_fee.value_show %>元
+    支付<%= @pay.key %>，需要花费<%= @pay.value_show %>元
   </p>
 </div>
 <div class="weui_opr_area">
   <p class="weui_btn_area">
-    <a href="javascript:;" class="weui_btn weui_btn_primary">确定</a>
-    <a href="javascript:;" class="weui_btn weui_btn_default">取消</a>
+    <a href="javascript:;"
+       class="weui_btn weui_btn_primary"
+       data-type="<%= @pay.type %>"
+       data-id="<%= @pay.id %>">确定</a>
+    <a href="javascript:history.back(-1);"
+       class="weui_btn weui_btn_default">取消</a>
   </p>
 </div>
+
+<script>
+ $(function() {
+   $('.weui_btn.weui_btn_primary').click(function() {
+     var id = $(this).data('id');
+     var type = $(this).data('type');
+     wxpay(id, type);
+   });
+ });
+
+ function wxpay(id, type) {
+   $.post('/pay', {id: id, type: type}, function(data) {
+     WeixinJSBridge.invoke('getBrandWCPayRequest', data, function(res){
+       if(res.err_msg == "get_brand_wcpay_request:ok") {
+         alert("支付成功");
+         window.location.href = '/meetup_enrolls'
+       } else if(res.err_msg == "get_brand_wcpay_request:cancel") {
+         alert("支付取消");
+       } else {
+         alert("支付失败:" + JSON.stringify(data));
+       }
+     });
+   });
+ }
+</script>
