@@ -41,10 +41,12 @@
   </h4>
   <div class="ui segment">
     <%= f.fields_for :meetup_fees do |fee| %>
-      <%= render 'meetup_fees', f: fee %>
+      <%= render 'meetup_fee_fields', f: fee %>
     <% end %>
-    <%= link_to_add_association '添加费用项', f, :meetup_fees,
-    { class: 'ui fluid button' } %>
+    <div class="links">
+      <%= link_to_add_association '添加费用项', f, :meetup_fees,
+      { class: 'ui fluid button' } %>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit "发布活动", class: 'ui fluid green button' %>
