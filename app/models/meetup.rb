@@ -7,8 +7,12 @@ class Meetup < ActiveRecord::Base
   after_initialize :init
 
   def init
-    self.open_at = Time.now
-    self.close_at = Time.now
-    self.deadline = Time.now
+    self.open_at ||= Time.now
+    self.close_at ||= Time.now
+    self.deadline ||= Time.now
+  end
+
+  def apply_expired?
+    Time.now.to_i >= self.deadline.to_i
   end
 end

@@ -1,20 +1,24 @@
 <% @meetups.each do |meetup| %>
-    <%= link_to meetup_path(meetup), class: 'ui fluid card' do %>
-      <div class="content">
-        <div class="header"><%= meetup.title %></div>
-        <div class="meta"><%= meetup.place %></div>
-        <div class="description"><%= meetup.intro %></div>
-      </div>
-      <div class="extra content">
-        <span class="right floated">
+  <%= link_to meetup_path(meetup), class: 'ui fluid card' do %>
+    <div class="content">
+      <div class="header"><%= meetup.title %></div>
+      <div class="meta"><%= meetup.place %></div>
+      <div class="description"><%= meetup.intro %></div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        <% if meetup.apply_expired? %>
+          报名已结束
+        <% else %>
           报名进行中
-        </span>
-        <span>
-          <i class="check icon"></i>
-          121 人已报名
-        </span>
-      </div>
-    <% end %>
+        <% end %>
+      </span>
+      <span>
+        <i class="check icon"></i>
+        121 人已报名
+      </span>
+    </div>
+  <% end %>
 <% end %>
 
 <%= link_to 'New Meetup', new_meetup_path %>
