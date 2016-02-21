@@ -12,32 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :open_at %><br>
+    <%= f.label :open_at %>
     <%= f.datetime_local_field :open_at %>
   </div>
   <div class="field">
-    <%= f.label :close_at %><br>
+    <%= f.label :close_at %>
     <%= f.datetime_local_field :close_at %>
   </div>
   <div class="field">
-    <%= f.label :deadline %><br>
+    <%= f.label :deadline %>
     <%= f.datetime_local_field :deadline %>
   </div>
   <div class="field">
-    <%= f.label :place %><br>
+    <%= f.label :place %>
     <%= f.text_field :place %>
   </div>
   <div class="field">
-    <%= f.label :intro %><br>
+    <%= f.label :intro %>
     <%= f.text_area :intro %>
   </div>
-  <div class="field">
-    <%= f.label :author_id %><br>
-    <%= f.text_field :author_id %>
   <h4 class="ui horizontal divider header">
     <i class="tag icon"></i>
     活动费用
@@ -50,6 +47,6 @@
     { class: 'fluid ui button' } %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "发布活动", class: 'fluid ui green button' %>
   </div>
 <% end %>
