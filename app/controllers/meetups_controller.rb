@@ -1,6 +1,8 @@
 class MeetupsController < ApplicationController
   before_action :set_meetup, only: [:show, :edit, :update, :destroy]
 
+  layout "semantic"
+
   # GET /meetups
   # GET /meetups.json
   def index
