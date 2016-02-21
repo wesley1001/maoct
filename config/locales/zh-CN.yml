@@ -13,3 +13,8 @@ zh-CN:
         key: 费用名称
         value: 金额
         quota: 名额限制
+
+    submit:
+      meetup:
+        create: 发布活动
+        update: 修改活动
