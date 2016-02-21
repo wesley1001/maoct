@@ -38,6 +38,16 @@
   <div class="field">
     <%= f.label :author_id %><br>
     <%= f.text_field :author_id %>
+  <h4 class="ui horizontal divider header">
+    <i class="tag icon"></i>
+    活动费用
+  </h4>
+  <div class="ui segment">
+    <%= f.fields_for :meetup_fees do |fee| %>
+      <%= render 'meetup_fees', f: fee %>
+    <% end %>
+    <%= link_to_add_association '添加费用项', f, :meetup_fees,
+    { class: 'fluid ui button' } %>
   </div>
   <div class="actions">
     <%= f.submit %>

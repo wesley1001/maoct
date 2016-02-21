@@ -9,3 +9,7 @@ zh-CN:
         close_at: 结束时间
         deadline: 报名截止
         author_id: 活动发布者
+      meetup_fee:
+        key: 费用名称
+        value: 金额
+        quota: 名额限制

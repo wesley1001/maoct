@@ -35,5 +35,13 @@
   <%= @meetup.author %>
 </p>
 
+<% @meetup.meetup_fees.each do |fee| %>
+  <p>
+    <%= fee.key %>
+    <%= fee.value %>
+    <%= fee.quota %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_meetup_path(@meetup) %> |
 <%= link_to 'Back', meetups_path %>
