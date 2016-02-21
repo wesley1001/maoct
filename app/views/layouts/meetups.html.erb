@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>马村-活动</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <%= stylesheet_link_tag    'semantic', media: 'all' %>
+    <%= javascript_include_tag 'semantic' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="ui green two item inverted menu">
+      <a class="item active">所有活动</a>
+      <a class="item">我的报名</a>
+    </div>
+    <div class="ui container">
+      <% if notice %>
+        <div class="ui positive message">
+          <i class="close icon"></i>
+          <div class="header"><%= notice %></div>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="ui negative message">
+          <i class="close icon"></i>
+          <div class="header"><%= alert %></div>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+    <script>
+     $('.message .close').on('click', function() {
+       $(this).closest('.message').transition('fade');
+     });
+    </script>
+  </body>
+</html>
