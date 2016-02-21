@@ -11,7 +11,7 @@
   <body>
     <nav class="ui blue two item inverted menu">
       <%= link_to "所有活动", meetups_path, class: 'item' %>
-      <a class="item">我的报名</a>
+      <%= link_to "我的报名", meetup_enrolls_path, class: 'item' %>
     </nav>
     <div class="ui container">
       <% if notice %>
