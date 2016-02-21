@@ -23,7 +23,7 @@
   </div>
   <div class="ui secondary segment">
     <i class="check icon"></i>
-    已有121人报名
+    已有<%= @meetup.meetup_enrolls_count %>人报名
   </div>
 </div>
 
@@ -44,7 +44,7 @@
           <%= fee.key %>
         </div>
         <div class="description">
-          剩余<%= fee.quota %>个名额
+          剩余<%= fee.quota_remained %>个名额
         </div>
       </div>
       <div class="ui top right attached label">
