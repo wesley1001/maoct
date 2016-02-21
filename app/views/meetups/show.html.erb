@@ -50,10 +50,36 @@
       <div class="ui top right attached label">
         <%= fee.value_show %>元
       </div>
-      <a class="ui bottom attached button" href="#">
+      <a class="ui bottom attached button" href="#"
+         data-meetup-id="<%= fee.meetup_id %>"
+         data-fee-id="<%= fee.id %>">
         <i class="add icon"></i>
         报名
       </a>
     </div>
   <% end %>
 </div>
+<script>
+ $(function() {
+   $("a").click(function(event) {
+     var params = {
+       'meetup_enroll[meetup_id]': $(this).data('meetup-id'),
+       'meetup_enroll[meetup_fee_id]': $(this).data('fee-id')
+     };
+     $.post('/meetup_enrolls', params, function(data) {
+       if(data.err == 0) {
+         if(data.fee > 0) {
+           alert('已为您锁定名额，请尽快支付');
+         } else {
+           alert('报名完成');
+         }
+         window.location.href = '/meetup_enrolls/' + data.enroll_id;
+       } else if(data.err == 10001){
+         alert('报名已结束');
+       } else if(data.err == 10002){
+         alert('此项名额已满');
+       }
+     });
+   });
+ });
+</script>

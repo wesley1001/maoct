@@ -1,0 +1,2 @@
+module MeetupEnrollsHelper
+end

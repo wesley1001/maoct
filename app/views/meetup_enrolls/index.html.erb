@@ -1,0 +1,7 @@
+<% @enrolls.each do |enroll| %>
+  <%= link_to meetup_enroll_path(enroll), class: 'ui fluid card' do %>
+    <div class="content">
+      <div class="header"><%= enroll.meetup.title %></div>
+    </div>
+  <% end %>
+<% end %>

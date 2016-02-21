@@ -16,4 +16,6 @@ class User < ActiveRecord::Base
   def email_required?
     false
   end
+
+  has_many :meetup_enrolls
 end
