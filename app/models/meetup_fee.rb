@@ -10,4 +10,8 @@ class MeetupFee < ActiveRecord::Base
   def value_show
     self.value / 100.0
   end
+
+  def quota_remained
+    self.quota - self.quota_used
+  end
 end
