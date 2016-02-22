@@ -15,6 +15,5 @@ class MeetupFee < ActiveRecord::Base
   private
   def normalize_value
     self.value = self.real_value * 100
-    puts self.value
   end
 end
