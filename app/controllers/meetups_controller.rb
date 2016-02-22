@@ -74,6 +74,6 @@ class MeetupsController < ApplicationController
   def meetup_params
     params.require(:meetup).permit(
       :title, :open_at, :close_at, :deadline, :place, :intro,
-      meetup_fees_attributes: [:id, :key, :value, :quota, :_destroy])
+      meetup_fees_attributes: [:id, :key, :real_value, :quota, :_destroy])
   end
 end

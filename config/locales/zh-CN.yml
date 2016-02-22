@@ -12,6 +12,7 @@ zh-CN:
       meetup_fee:
         key: 费用名称
         value: 金额
+        real_value: 金额
         quota: 名额限制
 
     submit:
