@@ -11,7 +11,7 @@ class PayController < ApplicationController
     @pay.type = :meetup_enroll
     @pay.key = enroll.meetup_fee.key
     @pay.value = enroll.meetup_fee.value
-    @pay.value_show = enroll.meetup_fee.value_show
+    @pay.real_value = enroll.meetup_fee.real_value
   end
 
   def create

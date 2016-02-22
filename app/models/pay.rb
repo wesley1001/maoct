@@ -1,3 +1,3 @@
 class Pay
-  attr_accessor :id, :type, :key, :value, :value_show
+  attr_accessor :id, :type, :key, :value, :real_value
 end
