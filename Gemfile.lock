@@ -38,9 +38,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
-    autoprefixer-rails (6.3.3)
+    autoprefixer-rails (6.3.3.1)
       execjs
-      json
     bcrypt (3.1.10)
     bcrypt (3.1.10-x86-mingw32)
     builder (3.2.2)
@@ -97,7 +96,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mime-types (2.99)
+    mime-types (2.99.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
@@ -210,12 +209,12 @@ GEM
       activemodel (>= 4.2)
       debug_inspector
       railties (>= 4.2)
-    wechat (0.7.4)
+    wechat (0.7.5)
       activesupport (>= 3.2, < 5.1.x)
       http (~> 1.0, >= 1.0.1)
       nokogiri (>= 1.6.0)
       thor
-    weui-rails (0.3.0)
+    weui-rails (0.3.1)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     wx_pay (0.5.0)
