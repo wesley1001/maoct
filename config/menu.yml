@@ -1,0 +1,5 @@
+button:
+  -
+    name: '活动报名'
+    type: 'view'
+    url: 'http://m.maoct.com/meetups'
