@@ -1,7 +1,7 @@
 namespace 'wechat' do
   desc 'show wechat menu'
   task 'menu' => :environment do
-    Wechat.api.menu
+    puts Wechat.api.menu
   end
 
   desc 'create wechat menu'
